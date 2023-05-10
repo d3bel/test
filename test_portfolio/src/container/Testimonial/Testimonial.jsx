@@ -36,8 +36,8 @@ const Testimonial = () => {
             <div className="app__testimonial-content">
               <p className="p-text">{testimonial.feedback}</p>
               <div className="">
-                <h4 className="bold-text">{testimonial.name}</h4>
-                <h5 className="p-text">{testimonial.company}</h5>
+                <h4 className="bold-text"><p>name:</p> {testimonial.name}</h4>
+                <h5 className="p-text"><p>company:</p> {testimonial.company}</h5>
               </div>
             </div>
           </div>

@@ -28,7 +28,19 @@
     align-items: center;
   }
 }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
 
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 .app__skills-item {
   flex-direction: column;
   text-align: center;
@@ -42,6 +54,7 @@
     background-color: #fff;
 
     img {
+      animation: blink 3s linear infinite;
       width: 50%;
       height: 50%;
     }
