@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const NavigationDots = ({ active }) => {
   return (
@@ -11,7 +10,9 @@ const NavigationDots = ({ active }) => {
             key={item + index}
             className="app__navigation-dot"
             style={active === item ? { backgroundColor: "#313BAC" } : {}}
-          />
+          >
+            {}
+          </a>
         )
       )}
     </div>

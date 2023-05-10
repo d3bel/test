@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 
 import { About, Header, Work, Skills, Testimonial, Footer } from "./container";
 import { Navbar } from "./components";
