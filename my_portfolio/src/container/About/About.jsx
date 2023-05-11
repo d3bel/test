@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { client, urlFor } from "../../client";
+import useService from "../../hooks/useService";
+import { urlFor } from "../../client";
 
 import "./About.scss";
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
+  const [data] = useService("abouts");
+  const abouts = data.sort(
+    (a, b) => new Date(a._createdAt) - new Date(b._createdAt)
+  );
 
-  useEffect(() => {
-    const query = '*[_type == "abouts"]';
-
-    client.fetch(query).then((data) => {
-      data.sort((a, b) => new Date(a._createdAt) - new Date(b._createdAt));
-      setAbouts(data);
-    });
-  }, []);
   return (
     <>
       <h2 className="head-text">

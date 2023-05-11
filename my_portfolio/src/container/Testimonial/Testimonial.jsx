@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
+import useService from "../../hooks/useService";
+import { urlFor } from "../../client";
 
 import "./Testimonial.scss";
 
 const Testimonial = () => {
-  const [brands, setBrands] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const query = '*[_type == "testimonial"]';
-    const brandsQuery = '*[_type == "brands"]';
-
-    client.fetch(query).then((data) => {
-      setTestimonials(data);
-    });
-    client.fetch(brandsQuery).then((data) => {
-      setBrands(data);
-    });
-  }, []);
+  const [testimonials, brands] = useService("testimonial", "brands");
 
   const handleClick = (index) => setCurrentIndex(index);
 
@@ -36,8 +25,12 @@ const Testimonial = () => {
             <div className="app__testimonial-content">
               <p className="p-text">{testimonial.feedback}</p>
               <div className="">
-                <h4 className="bold-text"><p>name:</p> {testimonial.name}</h4>
-                <h5 className="p-text"><p>company:</p> {testimonial.company}</h5>
+                <h4 className="bold-text">
+                  <p>name:</p> {testimonial.name}
+                </h4>
+                <h5 className="p-text">
+                  <p>company:</p> {testimonial.company}
+                </h5>
               </div>
             </div>
           </div>
