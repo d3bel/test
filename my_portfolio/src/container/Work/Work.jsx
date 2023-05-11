@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
@@ -10,9 +10,13 @@ import "./Work.scss";
 
 const Work = () => {
   const [works] = useService("works");
-  const [filterWork, setFilterWork] = useState(works);
+  const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+
+  useEffect(() => {
+    setFilterWork(works);
+  }, [works]);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
