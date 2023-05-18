@@ -1,20 +1,21 @@
 const NavigationDots = ({ active }) => {
   return (
     <div className="app__navigation">
-      {["home", "about", "work", "skills" /*"testimonial"*/, "contact"].map(
-        (item, index) => (
-          <a
-            href={`#${item}`}
-            key={item + index}
-            className="app__navigation-dot"
-            style={active === item ? { backgroundColor: "#313BAC" } : {}}
-          >
-            {}
-          </a>
-        )
-      )}
+      {["home", "about", "work", "skills", "contact"].map((item, index) => (
+        <a
+          href={`#${item}`}
+          key={item + index}
+          className="app__navigation-dot"
+          style={active === item ? { backgroundColor: "#313bac" } : {}}
+        />
+      ))}
     </div>
   );
 };
 
 export default NavigationDots;
+
+/* {console.log("active " + active)}
+{console.log("item " + item)}
+  {}
+</a> */
